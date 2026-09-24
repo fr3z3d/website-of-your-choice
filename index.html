@@ -1,5 +1,5 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Aš Esu Danys</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:80px;scroll-behavior:smooth}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Danys</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
 <style>
 :root{
@@ -13,8 +13,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--black);color:var(--text);font-family:var(--b);overflow-x:hidden;
-  padding-block:0 0}
+body{background:var(--black);color:var(--text);font-family:var(--b);overflow-x:hidden}
 .pad{padding-inline:clamp(16px,4vw,44px)}
 .wrap{max-width:1320px;margin:0 auto}
 h1,h2,h3,h4{margin:0;font-family:var(--d);font-weight:800;letter-spacing:-.025em;text-wrap:balance}
@@ -24,19 +23,20 @@ p{margin:0}
 .chrome{background:linear-gradient(176deg,#fff 0%,#D2D6DD 38%,#83888F 70%,#EFF1F5 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* ---------- nav ---------- */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(0,0,0,.82);
-  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+/* ---------- nav (transparent overlay, Tesla-style) ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(0,0,0,.32);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .navin{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding-block:13px}
-.logo{font-family:var(--d);font-weight:800;font-size:14px;letter-spacing:.16em;text-transform:uppercase;
+.logo{font-family:var(--d);font-weight:800;font-size:14px;letter-spacing:.2em;text-transform:uppercase;
   background:none;border:0;color:var(--text);cursor:pointer;justify-self:start;padding:0}
-.navmid{display:flex;gap:8px;align-items:center}
-.navright{justify-self:end;display:flex;gap:8px;align-items:center;position:relative}
+.navmid{display:flex;gap:22px;align-items:center}
+.navlink{font-family:var(--m);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  background:none;border:0;color:var(--mute);cursor:pointer;padding:6px 0;white-space:nowrap}
+.navlink:hover{color:var(--text)}
+.navright{justify-self:end;display:flex;gap:14px;align-items:center;position:relative}
 .nbtn{font-family:var(--m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  background:none;border:1px solid var(--line2);color:var(--mute);padding:8px 13px;border-radius:2px;cursor:pointer;white-space:nowrap}
+  background:none;border:1px solid rgba(255,255,255,.18);color:var(--mute);padding:8px 13px;border-radius:99px;cursor:pointer;white-space:nowrap}
 .nbtn:hover{color:var(--text);border-color:var(--text)}
-.nbtn.solid{background:var(--text);color:var(--black);border-color:var(--text);font-weight:700}
-.nbtn.solid:hover{background:var(--gold);border-color:var(--gold)}
 .nbtn .dot{display:inline-block;width:5px;height:5px;border-radius:99px;background:var(--hot);margin-left:6px;vertical-align:middle}
 button:focus-visible,a:focus-visible{outline:2px solid var(--ice);outline-offset:2px}
 .drop{position:absolute;top:calc(100% + 8px);right:0;width:270px;background:var(--raise);
@@ -51,6 +51,40 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--ice);outline-offset
 
 /* ---------- views ---------- */
 .view{display:none} .view.on{display:block}
+
+/* ---------- hero (Cybertruck-style full-bleed) ---------- */
+.hero{position:relative;min-height:100svh;margin-top:-61px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.heroimg{position:absolute;inset:0;background-image:url('assets/porsche-911-turbo-s.jpg');background-size:cover;
+  background-position:center 40%;animation:breathe 26s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+@media(prefers-reduced-motion:reduce){.heroimg{animation:none}}
+.heroshade{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.05) 30%,rgba(0,0,0,.05) 55%,rgba(0,0,0,.85) 100%)}
+.herotop{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding-top:61px;text-align:center;gap:10px}
+.wordmark{font-size:clamp(46px,12vw,148px);letter-spacing:-.02em;color:#fff;line-height:.92;
+  text-shadow:0 10px 46px rgba(0,0,0,.55)}
+.herostats{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;
+  padding-inline:clamp(18px,5vw,50px);gap:14px;flex-wrap:wrap}
+.hstat{display:flex;flex-direction:column;gap:14px}
+.hstat.r{align-items:flex-end;text-align:right}
+.hstat div b{display:block;font-family:var(--m);font-size:clamp(17px,2.2vw,24px);font-weight:700;color:#fff}
+.hstat div span{font-size:9px;color:rgba(255,255,255,.55);font-family:var(--m);letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:640px){.herostats{display:none}}
+.herocta{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;
+  padding-bottom:clamp(26px,5vh,50px);padding-top:6px}
+
+/* order button — pill, Tesla CTA style */
+.obtn{position:relative;font-family:var(--m);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  padding:15px 40px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(10,11,14,.55);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:rgba(255,255,255,.65);
+  cursor:not-allowed;font-weight:700}
+.obtn .lockmsg{position:absolute;left:50%;top:-38px;translate:-50% 0;white-space:nowrap;background:var(--hot);
+  color:#fff;font-size:9.5px;letter-spacing:.16em;padding:6px 11px;border-radius:2px;opacity:0;transition:opacity .15s}
+.obtn:hover .lockmsg{opacity:1}
+.obtn.unlocked{background:#fff;color:var(--black);border-color:#fff;cursor:pointer}
+.obtn.unlocked .lockmsg{display:none}
+.ocap{font-family:var(--m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:center;max-width:340px}
 
 /* ---------- tiles ---------- */
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:10px;padding-block:clamp(16px,3vw,26px)}
@@ -76,57 +110,9 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--ice);outline-offset
 .pop li{font-size:11px;color:var(--mute);line-height:1.5}
 .pop .more{margin-top:10px;font-family:var(--m);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice)}
 
-/* ---------- stage ---------- */
-.stage{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding-block:clamp(28px,5vw,48px);overflow:hidden;
-  background:radial-gradient(1000px 420px at 50% 40%,rgba(168,198,216,.10),transparent 66%)}
-.ghost{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
-.ghost span{font-family:var(--d);font-weight:800;font-size:clamp(84px,19vw,260px);color:#fff;opacity:.028;white-space:nowrap;letter-spacing:-.04em}
-.stagein{position:relative;display:grid;grid-template-columns:1fr minmax(0,560px) 1fr;gap:clamp(14px,3vw,30px);align-items:center}
-@media(max-width:940px){.stagein{grid-template-columns:1fr}}
-.readout{display:flex;flex-direction:column;gap:18px}
-.readout.r{text-align:right}
-@media(max-width:940px){.readout.r{text-align:left}.readout{flex-direction:row;flex-wrap:wrap;gap:22px}}
-.ro b{display:block;font-family:var(--m);font-size:clamp(20px,3vw,27px);font-weight:700;letter-spacing:-.02em}
-.ro span{font-size:10px;color:var(--dim);font-family:var(--m);letter-spacing:.14em;text-transform:uppercase}
-.ro.gold b{color:var(--gold)} .ro.ice b{color:var(--ice)}
-
-.turn{position:relative;aspect-ratio:16/10;max-width:100%;display:grid;place-items:center}
-.disc{position:absolute;bottom:8%;left:50%;translate:-50% 0;width:88%;aspect-ratio:3/1;border-radius:50%;
-  background:radial-gradient(ellipse at 50% 50%,rgba(168,198,216,.16),rgba(168,198,216,.03) 55%,transparent 72%);
-  border:1px solid rgba(168,198,216,.10)}
-.ring{position:absolute;bottom:8%;left:50%;translate:-50% 0;width:88%;aspect-ratio:3/1;border-radius:50%;
-  border:1px solid transparent;border-top-color:rgba(168,198,216,.55);border-right-color:rgba(201,162,74,.28);
-  animation:spin 9s linear infinite}
-.ring.b{width:64%;animation-duration:14s;animation-direction:reverse;border-top-color:rgba(201,162,74,.35);border-right-color:rgba(168,198,216,.2)}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@media(prefers-reduced-motion:reduce){.ring{animation:none}.car img{animation:none}}
-.car{position:relative;width:88%;z-index:2}
-.car img{width:100%;height:auto;display:block;object-fit:contain;
-  filter:grayscale(.22) contrast(1.12) brightness(.92) saturate(.85);
-  -webkit-mask-image:radial-gradient(ellipse 64% 80% at 50% 46%,#000 56%,transparent 82%);
-  mask-image:radial-gradient(ellipse 64% 80% at 50% 46%,#000 56%,transparent 82%);
-  animation:float 7s ease-in-out infinite}
-.plate{position:absolute;bottom:0;left:50%;translate:-50% 0;font-family:var(--m);font-size:9px;
-  letter-spacing:.12em;text-transform:uppercase;color:var(--dim);text-align:center;width:100%}
-.plate a{color:inherit;text-decoration:underline;text-underline-offset:2px}
-.plate a:hover{color:var(--ice)}
-
-/* order button */
-.order{display:flex;flex-direction:column;align-items:center;gap:10px;padding-block:clamp(20px,3vw,30px)}
-.obtn{position:relative;font-family:var(--m);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
-  padding:16px 42px;border-radius:2px;border:1px solid var(--line2);background:var(--raise);color:var(--dim);
-  cursor:not-allowed;font-weight:700}
-.obtn .lockmsg{position:absolute;left:50%;top:-38px;translate:-50% 0;white-space:nowrap;background:var(--hot);
-  color:#fff;font-size:9.5px;letter-spacing:.16em;padding:6px 11px;border-radius:2px;opacity:0;transition:opacity .15s}
-.obtn:hover .lockmsg{opacity:1}
-.obtn.unlocked{background:var(--text);color:var(--black);border-color:var(--text);cursor:pointer}
-.obtn.unlocked .lockmsg{display:none}
-.ocap{font-family:var(--m);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-
-/* progress */
-.prog{padding-block:clamp(22px,4vw,38px);display:flex;flex-direction:column;gap:18px}
+/* ---------- progress / target section ---------- */
+.target{border-top:1px solid var(--line);padding-block:clamp(34px,6vw,58px)}
+.prog{padding-top:clamp(22px,4vw,38px);display:flex;flex-direction:column;gap:18px}
 .bar b{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;font-weight:500;margin-bottom:7px}
 .bar b span:last-child{font-family:var(--m);font-size:12px;color:var(--mute);font-weight:400}
 .track{height:8px;background:var(--card);border:1px solid var(--line);border-radius:99px;overflow:hidden}
@@ -135,7 +121,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--ice);outline-offset
 .fill.good{background:linear-gradient(90deg,#2E7A54,var(--good))}
 .why{font-size:11.5px;color:var(--dim);margin-top:6px;line-height:1.5}
 .reality{border:1px solid var(--line);border-left:2px solid var(--gold);background:var(--raise);
-  padding:17px 19px;font-size:13px;line-height:1.65;color:var(--mute)}
+  padding:17px 19px;font-size:13px;line-height:1.65;color:var(--mute);margin-top:20px}
 .reality b{color:var(--text)}
 
 /* modal */
@@ -193,68 +179,70 @@ footer{padding-block:24px;border-top:1px solid var(--line);display:flex;justify-
 </style>
 
 <div class="nav"><div class="pad wrap navin">
-  <button class="logo" id="home">Aš Danys</button>
+  <button class="logo" id="home">Danys</button>
   <div class="navmid">
-    <button class="nbtn solid" id="openTodo">To-do<span class="dot" id="tdot"></span></button>
-    <span class="nbtn" id="clock" style="cursor:default"></span>
+    <button class="navlink" id="navTiles">Projects</button>
+    <button class="navlink" id="navProgress">Progress</button>
+    <button class="navlink" id="openTodo" style="color:var(--text)">To-do<span class="dot" id="tdot"></span></button>
   </div>
   <div class="navright">
-    <button class="nbtn" id="projBtn" aria-haspopup="true" aria-expanded="false">Projects ▾</button>
+    <span class="nbtn" id="clock" style="cursor:default;border-color:transparent"></span>
+    <button class="nbtn" id="projBtn" aria-haspopup="true" aria-expanded="false">Menu ▾</button>
     <div class="drop" id="projDrop" hidden></div>
   </div>
 </div></div>
 
 <!-- HOME -->
 <div class="view on" id="v-home">
-  <div class="pad wrap"><div class="tiles" id="tiles"></div></div>
 
-  <section class="stage">
-    <div class="ghost"><span>Turbo S</span></div>
-    <div class="pad wrap stagein">
-      <div class="readout r">
-        <div class="ro gold"><b class="num" id="roGap">—</b><span>Still missing</span></div>
-        <div class="ro"><b class="num" id="roBanked">—</b><span>Banked</span></div>
+  <section class="hero" id="hero">
+    <div class="heroimg"></div>
+    <div class="heroshade"></div>
+    <div class="herotop">
+      <div class="eyebrow" style="color:rgba(255,255,255,.55)">Porsche · 911 Turbo S</div>
+      <h1 class="wordmark">DANYS</h1>
+    </div>
+    <div class="herostats">
+      <div class="hstat">
+        <div><b class="num" id="roGap">—</b><span>Still missing</span></div>
+        <div><b class="num" id="roBanked">—</b><span>Banked</span></div>
       </div>
-
-      <div class="turn">
-        <div class="disc"></div><div class="ring"></div><div class="ring b"></div>
-        <div class="car">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/2023_Porsche_911_Turbo_S_2.jpg" alt="Porsche 911 Turbo S (992)" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="plate">Porsche 911 Turbo S (992) · reference photo — <a href="https://commons.wikimedia.org/wiki/File:2023_Porsche_911_Turbo_S_2.jpg" target="_blank" rel="noopener">Wikimedia Commons, CC BY-SA</a></div>
-      </div>
-
-      <div class="readout">
-        <div class="ro ice"><b class="num" id="roMonth">—</b><span>Net profit / month</span></div>
-        <div class="ro"><b class="num" id="roNeed">—</b><span>Needed to unlock</span></div>
+      <div class="hstat r">
+        <div><b class="num" id="roMonth">—</b><span>Net profit / month</span></div>
+        <div><b class="num" id="roNeed">—</b><span>Needed to unlock</span></div>
       </div>
     </div>
-
-    <div class="pad wrap" style="text-align:center;margin-top:clamp(20px,4vw,34px)">
-      <div class="eyebrow" style="margin-bottom:12px">Porsche 911 Turbo S</div>
-      <h2 class="chrome" style="font-size:clamp(36px,8vw,86px);line-height:.9">911 Turbo S</h2>
-      <div class="num" style="margin-top:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)">
-        478 kW · 0–100 in 2.7 s · <span id="priceTxt"></span>
-      </div>
-    </div>
-
-    <div class="order">
+    <div class="herocta">
       <button class="obtn" id="orderBtn"><span class="lockmsg" id="lockMsg">Not yet</span>Order now</button>
       <div class="ocap" id="orderCap"></div>
     </div>
   </section>
 
-  <div class="pad wrap prog">
-    <div class="eyebrow">Live progress</div>
-    <div id="bars"></div>
-    <div class="reality" id="reality"></div>
+  <div class="pad wrap" id="tiles-section" style="scroll-margin-top:80px">
+    <div class="eyebrow" style="padding-top:clamp(26px,4vw,40px)">Projects</div>
+    <div class="tiles" id="tiles"></div>
   </div>
+
+  <section class="target pad wrap" id="progress-section" style="scroll-margin-top:80px">
+    <div style="text-align:center;margin-bottom:clamp(20px,4vw,34px)">
+      <div class="eyebrow" style="margin-bottom:12px">The finish line</div>
+      <h2 class="chrome" style="font-size:clamp(34px,7vw,70px);line-height:.9">911 Turbo S</h2>
+      <div class="num" style="margin-top:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)">
+        478 kW · 0–100 in 2.7 s · <span id="priceTxt"></span>
+      </div>
+    </div>
+    <div class="eyebrow">Live progress</div>
+    <div class="prog">
+      <div id="bars"></div>
+      <div class="reality" id="reality"></div>
+    </div>
+  </section>
 </div>
 
 <!-- PROJECT PAGES -->
 <div class="view" id="v-proj"><div class="pad wrap ppage" id="projBody"></div></div>
 
-<div class="pad wrap"><footer><span>Aš Esu Danys · Vilnius</span><span id="stamp"></span></footer></div>
+<div class="pad wrap"><footer><span>Danys · Vilnius</span><span id="stamp"></span></footer></div>
 
 <div id="modalHost"></div>
 
@@ -357,7 +345,7 @@ let db=null,col=null,todos=SEED.map(s=>({...s,done:false}));
 function route(){
   const h=location.hash.replace('#','');
   const p=P.find(x=>x.id===h);
-  if(!p){$('#v-home').classList.add('on');$('#v-proj').classList.remove('on');window.scrollTo(0,0);return}
+  if(!p){$('#v-home').classList.add('on');$('#v-proj').classList.remove('on');return}
   $('#v-home').classList.remove('on');$('#v-proj').classList.add('on');
   $('#projBody').innerHTML=
    '<div class="ptop"><h2>'+p.name+'</h2><span class="tag '+p.tag+'">'+(p.tag==='live'?'Running':'Needs brief')+'</span></div>'+
@@ -366,7 +354,16 @@ function route(){
   window.scrollTo(0,0);
 }
 addEventListener('hashchange',route);
-$('#home').addEventListener('click',()=>{location.hash='';route()});
+$('#home').addEventListener('click',()=>{location.hash='';route();window.scrollTo({top:0,behavior:'smooth'})});
+
+/* ---- nav section links (from home or from a project page) ---- */
+function goSection(id){
+  const jump=()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})};
+  if(location.hash){location.hash='';route();requestAnimationFrame(()=>requestAnimationFrame(jump))}
+  else jump();
+}
+$('#navTiles').addEventListener('click',()=>goSection('tiles-section'));
+$('#navProgress').addEventListener('click',()=>goSection('progress-section'));
 
 /* ---- numbers ---- */
 function numbers(){
@@ -415,7 +412,7 @@ function openTodo(){
    '<div class="mhead"><h2>To-do</h2><span class="date">'+d+'</span></div>'+
    '<div class="todos" id="todos"></div>'+
    '<div class="addwrap">'+
-     '<div class="addrow"><input type="text" id="tnew" placeholder="Ką reikia padaryti…" autocomplete="off"><button class="b" id="tadd">Add</button></div>'+
+     '<div class="addrow"><input type="text" id="tnew" placeholder="What needs doing…" autocomplete="off"><button class="b" id="tadd">Add</button></div>'+
      '<div class="addrow"><input type="date" id="tdue"><label class="opts" style="gap:6px"><input type="checkbox" id="timp"> Important</label></div>'+
      '<div class="opts"><button class="b ghost" id="tclose">Close</button><span id="sync"></span></div>'+
    '</div></div></div>';
